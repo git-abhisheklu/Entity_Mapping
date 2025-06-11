@@ -45,15 +45,15 @@ public class TeacherService {
             existingTeacher.setName(updatedData.getName());
             existingTeacher.setEmail(updatedData.getEmail());
 
-            // Update subject if provided
+
             if (updatedData.getSubject() != null) {
                 Subjects existingSubject = existingTeacher.getSubjects();
                 if (existingSubject == null) {
-                    // New subject case
+
                     subjectRepository.save(updatedData.getSubjects());
                     existingTeacher.setSubject(updatedData.getSubject());
                 } else {
-                    // Update existing subject details
+
 //                    existingSubject.setName(updatedData.getSubject().getName());
                     existingSubject.setSubjectName(updatedData.getSubject());
                     subjectRepository.save(existingSubject);
